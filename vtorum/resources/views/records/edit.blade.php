@@ -32,7 +32,7 @@
             <div class="inline-field">
                 <label>Подписчики:</label>
                 <div class="tag-input-container">
-                    <input type="text" id="subscribers-input" placeholder="Введите подписчика и нажмите Enter" value="{{ old('subscribers', $record->subscribers) }}">
+                    <input type="text" id="subscribers-input" placeholder="Введите подписчика и нажмите Enter">
                     <div id="subscribers-list"></div>
                     <input type="hidden" name="subscribers" value="{{ old('subscribers', $record->subscribers) }}">
                 </div>
@@ -42,7 +42,7 @@
             <div class="inline-field">
                 <label>Теги:</label>
                 <div class="tag-input-container">
-                    <input type="text" id="tags-input" placeholder="Введите тег и нажмите Enter" value="{{ old('tags', $record->tags) }}">
+                    <input type="text" id="tags-input" placeholder="Введите тег и нажмите Enter">
                     <div id="tags-list"></div>
                     <input type="hidden" name="tags" value="{{ old('tags', $record->tags) }}">
                 </div>
@@ -80,7 +80,7 @@
 
         <label>Связи:</label>
         <div class="tag-input-container">
-            <input type="text" id="relations-input" placeholder="Введите связь и нажмите Enter" value="{{ old('relations', $record->relations) }}">
+            <input type="text" id="relations-input" placeholder="Введите связь и нажмите Enter">
             <div id="relations-list"></div>
             <input type="hidden" name="relations" value="{{ old('relations', $record->relations) }}">
         </div>

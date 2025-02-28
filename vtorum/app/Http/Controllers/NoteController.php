@@ -32,7 +32,8 @@ class NoteController extends Controller
     public function store(Request $request, $recordId)
     {
         $validated = $request->validate([
-            'content' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
         ]);
 
         $record = Record::findOrFail($recordId);
@@ -58,7 +59,7 @@ class NoteController extends Controller
         // Валидация входных данных
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required|string',
+            'content' => 'nullable|string', // Разрешаем пустой контент
         ]);
 
         // Находим заметку по ID
