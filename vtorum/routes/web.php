@@ -5,19 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AIController;
 use App\Http\Controllers\NoteController;
 
-Route::get('/', [NoteController::class, 'index'])->name('home');
+Route::get('/', [NoteController::class, 'index'])->name('notes.index');
 
-Route::get('/ai', [NoteController::class, 'index'])->name('ai.chat');
-
+Route::get('/chat', [AIController::class, 'index'])->name('chat.index');
 Route::post('/chat', AIController::class)->name('chat');
 
-Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
-Route::get('/notes/create', [NoteController::class, 'create'])->name('notes.create');
-Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
-Route::get('/notes/{id}', [NoteController::class, 'show'])->name('notes.show');
-Route::get('/notes/{id}/edit', [NoteController::class, 'edit'])->name('notes.edit');
-Route::put('/notes/{id}', [NoteController::class, 'update'])->name('notes.update');
-Route::delete('/notes/{id}', [NoteController::class, 'destroy'])->name('notes.destroy');
 
 Route::get('/records', [RecordController::class, 'index'])->name('records.index');
 Route::get('/records/create', [RecordController::class, 'create'])->name('records.create');
@@ -27,6 +19,15 @@ Route::get('/records/{record}/edit', [RecordController::class, 'edit'])->name('r
 Route::delete('/records/{record}', [RecordController::class, 'destroy'])->name('records.destroy');
 Route::put('/records/{record}', [RecordController::class, 'update'])->name('records.update');
 
+Route::prefix('records/{recordId}')->group(function () {
+    Route::get('notes', [NoteController::class, 'index'])->name('notes.index');
+    Route::post('notes', [NoteController::class, 'store'])->name('notes.store');
+    Route::get('notes/{noteId}/edit', [NoteController::class, 'edit'])->name('notes.edit');
+    Route::put('notes/{noteId}', [NoteController::class, 'update'])->name('notes.update');
+    Route::delete('notes/{noteId}', [NoteController::class, 'destroy'])->name('notes.destroy');
+    Route::get('notes/{noteId}', [NoteController::class, 'show'])->name('notes.show');
+
+});
 
 Route::post('/update-record-order', [RecordController::class, 'updateOrder']);
 

@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
 body {
     background-color: #f3f4f6;
     color: #111827;
-    font-family: Inter, sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
 }
+
 
 .container {
     display: flex;
@@ -22,7 +25,7 @@ body {
 
 .sidebar h2 {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 400;
     margin-bottom: 16px;
 }
 
@@ -36,16 +39,23 @@ body {
 .note-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 8px;
     border-radius: 12px;
     cursor: pointer;
     transition: background 0.2s;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.note-item:hover {
-    background-color: #e5e7eb;
+.notes-container {
+    margin-top: 12px; /* Отступ сверху */
+    padding-left: 20px; /* Отступ слева для заметок */
+    width: 100%;
 }
+
+
+
 
 .main-content {
     height: 100vh;
@@ -78,10 +88,9 @@ body {
 
 .entry-title {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
-/* Блок комментариев */
 .comments {
     margin-top: 24px;
 }
@@ -128,7 +137,7 @@ button {
     margin: 0 auto; /* Центрируем кнопку по горизонтали */
 }
 
-.delete{
+.delete {
     border-radius: 999px;
     height: 30px;
     width: 30px;
@@ -136,11 +145,17 @@ button {
     border: none;
     cursor: pointer;
     display: flex;
-    align-items: center; /* Центрируем по вертикали */
-    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     transition: background-color 0.3s ease;
-    padding: 0; /* Убираем внутренние отступы */
 }
+
+.delete img {
+    height: 20px;
+    width: 20px;
+}
+
 
 button img {
     height: 20px;
@@ -172,16 +187,39 @@ h1 {
 .sortable-item {
     user-select: none;
     display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Выровнять все элементы слева */
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 12px;
     cursor: pointer;
     background-color: #ffffff;
     transition: background 0.2s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.record-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.record-title {
+    flex-grow: 1;
+    font-weight: 400;
+}
+
+.notes-container {
+    margin-top: 12px; /* Отступ сверху для заметок */
+    padding-left: 20px; /* Отступ слева для заметок */
+    width: 80%;
+}
+
+
+
 .drag-handle {
     user-select: none;
-
     cursor: move;
     display: inline-block;
     padding: 5px;
@@ -198,7 +236,7 @@ a {
 
     color: black;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 400;
     transition: color 0.3s ease;
 }
 

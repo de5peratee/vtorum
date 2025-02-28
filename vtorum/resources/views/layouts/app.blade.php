@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Вторум')</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
     @vite(['resources/css/style.css'])
     @vite(['resources/css/footer.css'])
     @vite(['resources/css/button.css'])
@@ -24,29 +26,56 @@
         <div class="separator"></div>
 
         <h1>Проекты</h1>
-        <a href="{{ route('records.create') }}" class="create-button">
-            <img src="{{ asset('icon/Add_Plus_Circle.svg') }}" alt="logo">
-            Создать запись
-        </a>
+        <div class="button-container">
+            <a href="{{ route('records.create') }}" class="create-button">
+                <img src="{{ asset('icon/Add_Plus_Circle.svg') }}" alt="logo">
+                Создать запись
+            </a>
+
+            <a href="{{ route('chat.index') }}" class="create-button">
+                <img src="{{ asset('icon/ai.svg') }}" alt="logo">
+                AI-личность
+            </a>
+        </div>
+
 
         <h2>Записи</h2>
         <ul class="note-list" id="sortable">
             @foreach($records as $record)
                 <li id="record-{{ $record->id }}" data-id="{{ $record->id }}" class="sortable-item">
-            <span class="drag-handle">
-                <img src="{{ asset('icon/drag-svgrepo-com.svg') }}" alt="drag" />
-            </span>
-                    <a href="{{ route('records.edit', $record) }}">{{ $record->title }}</a>
-                    <form action="{{ route('records.destroy', $record) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button class="delete" type="submit">
-                            <img src="{{ asset('icon/trash-xmark-svgrepo-com.svg') }}" />
-                        </button>
-                    </form>
+                    <div class="record-header">
+                <span class="drag-handle">
+                    <img src="{{ asset('icon/drag-svgrepo-com.svg') }}" alt="drag"/>
+                </span>
+                        <a href="{{ route('records.edit', $record) }}" class="record-title">{{ $record->title }}</a>
+
+                        <form action="{{ route('records.destroy', $record) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button class="delete" type="submit">
+                                <img src="{{ asset('icon/trash-xmark-svgrepo-com.svg') }}" />
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Заметки для текущей записи -->
+                    @if($record->notes->count() > 0)
+                        @foreach($record->notes as $note)
+                            <div class="note-item">
+                                <span class="drag-handle">
+                                    <img src="{{ asset('icon/paragraph-svgrepo-com.svg') }}" style="margin-left: 50px;"/>
+                                </span>
+                                <!-- Ссылка на страницу заметки -->
+                                <a href="{{ route('notes.show', ['recordId' => $record->id, 'noteId' => $note->id]) }}" class="note-title">
+                                    {{ $note->title }}
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif
                 </li>
             @endforeach
         </ul>
+
 
 
     </aside>
