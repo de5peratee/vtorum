@@ -1,0 +1,211 @@
+body {
+    background-color: #f3f4f6;
+    color: #111827;
+    font-family: Inter, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #ffffff;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.note-list {
+    list-style: none;
+    user-select: none;
+    padding: 0;
+    margin: 0;
+}
+
+.note-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.note-item:hover {
+    background-color: #e5e7eb;
+}
+
+.main-content {
+    height: 100vh;
+    flex-grow: 20;
+    background-color: #ffffff;
+    padding: 24px;
+    margin: 15px 15px 15px 0;
+    border-radius: 12px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+
+.sidebar {
+    height: fit-content;
+    flex-grow: 1;
+    background-color: #ffffff;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+    padding: 24px;
+    margin: 15px 15px 15px 15px;
+    border-radius: 12px;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.entry-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Блок комментариев */
+.comments {
+    margin-top: 24px;
+}
+
+.comment {
+    background-color: #f9fafb;
+    padding: 16px;
+    border-radius: 12px;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+    margin: 8px 0;
+}
+
+.comment-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    resize: none;
+}
+
+.logo img {
+    height: 40px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border-radius: 8px; /* Радиус скругления углов */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    margin: 0 auto; /* Центрируем кнопку по горизонтали */
+}
+
+.delete{
+    border-radius: 999px;
+    height: 30px;
+    width: 30px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center; /* Центрируем по вертикали */
+    justify-content: center; /* Центрируем по горизонтали */
+    transition: background-color 0.3s ease;
+    padding: 0; /* Убираем внутренние отступы */
+}
+
+button img {
+    height: 20px;
+    width: 20px;
+}
+
+button:hover {
+    background-color: #fda5a5; /* Изменение цвета фона при наведении */
+}
+
+button:focus {
+    outline: none; /* Убираем обводку при фокусе */
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #F8F8F8;
+    margin: 20px 0;
+}
+
+.sortable-item {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Выровнять все элементы слева */
+    margin-bottom: 12px;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: background 0.2s ease-in-out;
+}
+.drag-handle {
+    user-select: none;
+
+    cursor: move;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.drag-handle img {
+    width: 20px;
+    height: 20px;
+}
+
+a {
+
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: none;
+}
+form {
+    margin-left: auto; /* Выравнивание кнопки по правому краю */
+}
+

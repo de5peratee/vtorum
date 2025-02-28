@@ -1,0 +1,38 @@
+.create-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #212121;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-wrap: wrap;
+    max-width: 100%;
+    word-break: break-word;
+}
+
+.create-button img {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.create-button:hover {
+    transform: translateY(-2px);
+    background-color: #333;
+}
+
+.create-button:active {
+    transform: translateY(1px);
+    background-color: #444;
+}

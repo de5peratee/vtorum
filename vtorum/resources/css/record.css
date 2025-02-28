@@ -1,0 +1,111 @@
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+.inline-fields {
+    display: flex;
+    gap: 15px; /* Устанавливаем расстояние между полями */
+    flex-wrap: wrap; /* Для адаптивности */
+    margin-bottom: 20px;
+}
+
+.inline-field {
+    flex: 1 1 220px; /* Элементы будут адаптироваться, но не меньше 220px */
+}
+
+
+label {
+    font-weight: bold;
+    color: #444;
+    width:100%;
+}
+
+input, select, textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.error {
+    display: block;
+    color: #f44336; /* Красный цвет для ошибок */
+    font-size: 14px; /* Размер шрифта */
+    margin-top: 5px; /* Отступ сверху */
+    margin-bottom: 20px; /* Отступ снизу */
+    font-weight: bold; /* Жирное начертание */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    resize: vertical; /* Разрешаем изменение размера по вертикали */
+    min-height: 120px; /* Минимальная высота */
+    max-height: 300px; /* Максимальная высота */
+    box-sizing: border-box; /* Чтобы padding не влиял на размер */
+}
+
+
+@media (max-width: 600px) {
+    form {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+}
+
+.tag-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    min-height: 20px;
+    gap: 5px;
+    width: 60%;
+}
+
+.tag {
+    display: inline-flex; /* Было просто flex */
+    align-items: center;
+    background: #e0e0e0;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    white-space: nowrap;
+    margin: 3px; /* Добавил отступы */
+}
+
+.tag span {
+    cursor: pointer;
+    margin-left: 8px;
+    font-weight: bold;
+    color: #666;
+}
+
+.tag span:hover {
+    color: #000;
+}
+
+.tag-input-container input {
+    border: none;
+    outline: none;
+    padding: 6px;
+    font-size: 14px;
+    background: transparent;
+    flex-grow: 1;
+    min-width: 120px;
+}
